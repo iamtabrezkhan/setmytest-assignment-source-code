@@ -1,0 +1,239 @@
+:root {
+    font-size: 16px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0px;
+    background: #ffc0a0;
+}
+
+.arrow-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 3rem;
+    height: 50px;
+    align-items: center;
+    position: relative;
+    padding-top: 40px;
+}
+
+.arrow {
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    animation: moving 2s ease-in-out infinite, fade 2s ease-in-out infinite;
+}
+
+@keyframes moving {
+    from {
+        top: 0px;
+    }
+    to {
+        top: 50px;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.cards-container {
+    width: calc(90% - 40px);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background: gray;
+    padding: 20px 10px;
+}
+
+.flip-container {
+    width: calc(33.33% - 4px);
+    background: white;
+    height: 200px;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.flipper {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transition: all ease-in-out 0.5s;
+}
+
+.front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
+
+.form-container {
+    width: calc(90% - 40px);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 20px;
+    background: steelblue;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.form {
+    width: calc(90% - 4px);
+    margin: 0 auto;
+    box-shadow: 0px 3px 20px -2px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    background: white;
+}
+
+.form-head {
+    background: #ffc0a0;
+    color: black;
+    text-transform: uppercase;
+    padding: 20px 0px;
+}
+
+.form-head p {
+    margin: 0px;
+}
+
+.form-body {
+    padding: 20px 0px;
+}
+
+textarea {
+    margin-bottom: 5px;
+    resize: vertical;
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+input{
+    width: calc(100% - 40px);
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+input, textarea {
+    border: none;
+    outline: none;
+    border: 1px solid #ffc0a0;
+    color: black;
+    transition: all ease-in-out 0.2s;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0px 1px 2px steelblue;
+}
+
+.error-box {
+    position: fixed;
+    width: 20%;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 0, 0, 0.7);
+    text-align: center;
+    color: white;
+    opacity: 0;
+    box-shadow: 0px 3px 20px -2px rgba(0, 0, 0, 0.5);
+    transition: all ease-in-out 0.3s;
+}
+
+.error-active {
+    opacity: 1;
+}
+
+.name {
+    z-index: 5;
+}
+
+.name, .email, .address {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.name-dropdown {
+    position: absolute;
+    background: #f1f1f1;
+    width: 100%;
+    top: 37px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0px 3px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+li {
+    list-style: none;
+    padding: 8px 0;
+    z-index: 2;
+    color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+
+li:hover {
+    color: black;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .flip-container {
+        width: calc(100% - 4px);
+        margin-bottom: 5px;
+    }
+
+    input, textarea {
+        width: calc(100% - 20px);
+        padding: 10px 10px
+    }
+
+    .name, .email, .address {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
